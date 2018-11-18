@@ -9,6 +9,25 @@
 
     <div [attr.id]="'rest'+ cardId" class="collapse" [attr.aria-labelledby]="'heading' + cardId" data-parent="#restaurant_card">
       <div class="card-body">
+        <h5 class="card-subtitle mb-2 text-muted">Known For:</h5>
+
+        <div class="row">
+            <div class = "card-tags-container">
+              <span *ngFor="let c of categories" class="btn btn-sm btn-warning card-tags">{{c}}</span>
+            </div>
+        </div>
+
+        <br>
+
+        <h5 class="card-subtitle mb-2 text-muted">City:</h5>
+
+        <p class="card-text">
+          {{restaurant.city}}
+        </p>
+
+       <h5 class="card-subtitle mb-2 text-muted">Yelp Rating</h5>
+        <span *ngFor="let check of checked_stars;" class="fa fa-star checked"></span>
+        <span *ngFor="let uncheck of unchecked_stars;" class="fa fa-star"></span>
 
       </div>
     </div>
