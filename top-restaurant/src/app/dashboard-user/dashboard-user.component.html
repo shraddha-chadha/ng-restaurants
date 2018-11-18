@@ -1,0 +1,14 @@
+<div class="container app-container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="accordion" id="restaurant_card">
+        <app-restaurant-card *ngFor="let r of restaurants; let i = index" [cardId]= "i" [restaurant]="r"></app-restaurant-card>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+  <div class="card">
+    <div class="card-header" [attr.id]="'heading' + cardId">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#rest'+ cardId" aria-expanded="true" [attr.aria-controls]="'rest'+ cardId" >
+          {{restaurant.name}}
+        </button>
+      </h5>
+    </div>
+
+    <div [attr.id]="'rest'+ cardId" class="collapse" [attr.aria-labelledby]="'heading' + cardId" data-parent="#restaurant_card">
+      <div class="card-body">
+
+      </div>
+    </div>
+  </div>
+
