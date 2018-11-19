@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterOwnerComponent } from './register-owner/register-owner.component';
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
-import { TopRestaurantService} from "./top-restaurant.service";
+import {TopRestaurantService} from "./top-restaurant.service";
 import { UserRecommendationService } from "./user-recommendation.service";
 import { ListFilterComponent } from './list-filter/list-filter.component';
 
@@ -47,7 +47,6 @@ const appRoutes: Routes = [
     DashboardUserComponent,
     RestaurantCardComponent,
     ListFilterComponent
-
   ],
   imports: [
     BrowserModule,HttpClientModule,
