@@ -10,6 +10,7 @@ export class RestaurantCardComponent implements OnInit {
 
   @Input() restaurant;
   @Input() cardId;
+  @Input() parentId;
   public categories;
   public checked_stars = 0;
   public unchecked_stars = 0;

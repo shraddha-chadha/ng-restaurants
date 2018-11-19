@@ -15,6 +15,7 @@ public year = '2017';
   constructor(private http: HttpClient) { }
 
   getTopRestaurants() {
+    console.log(this.url + this.quater + '/' + this.year);
     return this.http.get(this.url + this.quater + '/' + this.year);
   }
 }

@@ -15,7 +15,8 @@ import { DashboardUserComponent } from './dashboard-user/dashboard-user.componen
 import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
 import {TopRestaurantService} from "./top-restaurant.service";
 import { UserRecommendationService } from "./user-recommendation.service";
-import { ListFilterComponent } from './list-filter/list-filter.component';
+import { UserFilterService} from "./user-filter.service";
+import { TopRestaurantsComponent } from './top-restaurants/top-restaurants.component';
 
 const appRoutes: Routes = [
   {
@@ -47,7 +48,7 @@ const appRoutes: Routes = [
     RegisterOwnerComponent,
     DashboardUserComponent,
     RestaurantCardComponent,
-    ListFilterComponent
+    TopRestaurantsComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,
@@ -56,7 +57,8 @@ const appRoutes: Routes = [
   ],
 
   providers: [TopRestaurantService,
-              UserRecommendationService],
+              UserRecommendationService,
+              UserFilterService],
 
   bootstrap: [AppComponent]
 })
