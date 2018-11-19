@@ -13,6 +13,7 @@ import { RegisterOwnerComponent } from './register-owner/register-owner.componen
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
 import {TopRestaurantService} from "./top-restaurant.service";
+import { ListFilterComponent } from './list-filter/list-filter.component';
 
 const appRoutes: Routes = [
   {
@@ -43,8 +44,8 @@ const appRoutes: Routes = [
     HomeComponent,
     RegisterOwnerComponent,
     DashboardUserComponent,
-    RestaurantCardComponent
-
+    RestaurantCardComponent,
+    ListFilterComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,
