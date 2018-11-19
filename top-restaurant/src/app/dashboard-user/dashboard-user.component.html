@@ -3,13 +3,14 @@
     <div class="col">
       <h3>Top 10 Restaurants of Canada for </h3>
       <div class="card">
-        <div class="accordion" id="restaurant_card">
         <app-restaurant-card *ngFor="let r of restaurants; let i = index" [cardId]= "i" [restaurant]="r"></app-restaurant-card>
-        </div>
       </div>
     </div>
     <div class="col">
-      <div class="card"></div>
+      <h3>Top Recommendations for you</h3>
+      <div class="card">
+        <app-restaurant-card *ngFor="let recom of recommendations; let i = index" [cardId]= "i" [restaurant]="recom"></app-restaurant-card>
+      </div>
     </div>
   </div>
 </div>

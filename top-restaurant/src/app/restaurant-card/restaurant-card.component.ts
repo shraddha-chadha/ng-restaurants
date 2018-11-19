@@ -19,7 +19,7 @@ export class RestaurantCardComponent implements OnInit {
   ngOnInit() {
     this.categories = this.restaurant.categories.split(', ');
     this.categories.sort();
-    this.checked_stars = Math.floor(this.restaurant.stars);
+    this.checked_stars = this.restaurant.stars;
     this.unchecked_stars = 5 - this.checked_stars;
   }
 

@@ -7,13 +7,14 @@ const httpOptions = {
 
 @Injectable()
 export class TopRestaurantService {
-  public toprest;
+
+public url = 'https://ordinary-moose-47.localtunnel.me/get_top_restaurants_quarter_qy/';
+public quater = 'quarter1';
+public year = '2017';
 
   constructor(private http: HttpClient) { }
 
   getTopRestaurants() {
-    return this.http.get('http://127.0.0.1:8080/api/v1/entries/quarter1/2017');
+    return this.http.get(this.url + this.quater + '/' + this.year);
   }
-
-
 }
