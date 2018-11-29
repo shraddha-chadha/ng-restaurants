@@ -1,17 +1,39 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-const httpOptions = {
-  headers: new HttpHeaders({ 'Accept': 'text/html' })
-};
-
 
 @Injectable()
 export class UserFilterService {
-  public url = 'https://ordinary-moose-47.localtunnel.me/get_top_restaurants_quarter_qy/';
+  public args = [];
+  public userId;
+  public businessId;
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
-  getFilterResults(quater, year, zipcode) {
-    return this.http.get(this.url + quater + '/' + year);
+  setFilterValues(zipcode,quarter,year) {
+    this.args.length = 0;
+    this.args.push(zipcode);
+    this.args.push(quarter);
+    this.args.push(year);
+    console.log(this.args);
   }
+
+  getFilterValues() {
+    return this.args;
+  }
+
+  setUserId(user) {
+    this.userId = user;
+  }
+
+  getUserId() {
+    return this.userId;
+  }
+
+  setBusinessId(business) {
+    this.businessId = business;
+  }
+
+  getBusinessID() {
+    return this.businessId;
+  }
+
 }

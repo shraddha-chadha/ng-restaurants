@@ -2,13 +2,14 @@ import {Component, Input, OnInit} from '@angular/core';
 import { TopRestaurantService} from "../top-restaurant.service";
 import { UserRecommendationService} from "../user-recommendation.service";
 import {UserFilterService} from "../user-filter.service";
+import {BusinessInsightsService} from "../business-insights.service";
 
 @Component({
-  selector: 'app-dashboard-user',
-  templateUrl: './dashboard-user.component.html',
-  styleUrls: ['./dashboard-user.component.css']
+  selector: 'app-dashboard-owner',
+  templateUrl: './dashboard-owner.component.html',
+  styleUrls: ['./dashboard-owner.component.css']
 })
-export class DashboardUserComponent implements OnInit {
+export class DashboardOwnerComponent implements OnInit {
 
   public years: number[];
   quarters = [
@@ -35,8 +36,9 @@ export class DashboardUserComponent implements OnInit {
   public api_recomd_result;
   public restaurants = [];
   public recommendations = [];
+  public businessin = [];
 
-  constructor(private restservice:TopRestaurantService, private userservice: UserRecommendationService, private userfilter:UserFilterService ) {
+  constructor(private buss:BusinessInsightsService, private restservice:TopRestaurantService, private userservice: UserRecommendationService, private userfilter:UserFilterService ) {
     let yearsList = [];
     for (let i = 2018; i >= 1900; i--) {
       yearsList.push(i);
@@ -47,12 +49,13 @@ export class DashboardUserComponent implements OnInit {
   ngOnInit() {
     this.search();
     this.getTopRest();
-    this.getUserRecommendations();
+    this.getBusinessNeighbourhoodInsights();
   }
 
   search() {
     this.userfilter.setFilterValues(this.zipCode, this.selectedQuarter, this.selectedYear);
     this.getTopRest();
+    this.getBusinessNeighbourhoodInsights();
   }
 
   getTopRest () {
@@ -75,19 +78,22 @@ export class DashboardUserComponent implements OnInit {
     });
   }
 
-  getUserRecommendations() {
-    this.userservice.getUserRecommendation().subscribe( (data) => {
-      this.api_recomd_result = data['response'];
-      let temp = [];
+  getBusinessNeighbourhoodInsights() {
+    this.buss.getBusinessInsights().subscribe( (data) => {
+      let temp =[];
 
-      for( let key in this.api_recomd_result ) {
-        temp.push(this.api_recomd_result[key]);
+      for( let key in data['response'] ) {
+        temp.push(data['response'][key]);
       }
+
+      temp.sort((a,b) => {
+        return a.rank - b.rank;
+      });
 
       temp = temp.slice(0, temp.length - 1);
 
-      this.recommendations = temp;
-      console.log(this.recommendations);
+      this.businessin = temp;
+      console.log(this.businessin);
     });
   }
 }

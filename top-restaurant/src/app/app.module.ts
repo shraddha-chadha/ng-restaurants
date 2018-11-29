@@ -16,7 +16,8 @@ import { RestaurantCardComponent } from './restaurant-card/restaurant-card.compo
 import {TopRestaurantService} from "./top-restaurant.service";
 import { UserRecommendationService } from "./user-recommendation.service";
 import { UserFilterService} from "./user-filter.service";
-import { TopRestaurantsComponent } from './top-restaurants/top-restaurants.component';
+import {DashboardOwnerComponent} from "./dashboard-owner/dashboard-owner.component";
+import {BusinessInsightsService} from "./business-insights.service";
 
 const appRoutes: Routes = [
   {
@@ -35,6 +36,10 @@ const appRoutes: Routes = [
     path: 'dashboard_user',
     component: DashboardUserComponent
   },
+  {
+    path: 'dashboard_owner',
+    component: DashboardOwnerComponent
+  },
 ];
 
 @NgModule({
@@ -48,7 +53,7 @@ const appRoutes: Routes = [
     RegisterOwnerComponent,
     DashboardUserComponent,
     RestaurantCardComponent,
-    TopRestaurantsComponent
+    DashboardOwnerComponent,
   ],
   imports: [
     BrowserModule,HttpClientModule,
@@ -58,7 +63,8 @@ const appRoutes: Routes = [
 
   providers: [TopRestaurantService,
               UserRecommendationService,
-              UserFilterService],
+              UserFilterService,
+              BusinessInsightsService],
 
   bootstrap: [AppComponent]
 })

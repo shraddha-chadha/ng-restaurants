@@ -32,16 +32,16 @@
 
   <div class="row">
     <div class="col">
-      <h3>Top Restaurants of Canada for {{selectedQuarter}} of {{selectedYear}}</h3>
+      <h3>Top Restaurants for {{selectedQuarter}} of {{selectedYear}}</h3>
       <div class="accordion" id="toprestaurant">
-          <app-restaurant-card *ngFor="let r of restaurants; let i = index" [cardId]= "i" [restaurant]="r" [parentId]="'#toprestaurant'"></app-restaurant-card>
+        <app-restaurant-card *ngFor="let r of restaurants; let i = index" [cardId]= "i" [restaurant]="r" [parentId]="'#toprestaurant'"></app-restaurant-card>
       </div>
 
     </div>
     <div class="col">
-      <h3>Top Recommendations for you</h3>
-      <div class="accordion" id="toprecommendations">
-        <app-restaurant-card *ngFor="let recom of recommendations; let i = index" [cardId]= "i" [restaurant]="recom" [parentId]="'#toprecommendations'"></app-restaurant-card>
+      <h3>Popular Restaurants of your Area</h3>
+      <div class="accordion" id="businessInsights">
+        <app-restaurant-card *ngFor="let buss of businessin; let i = index" [cardId]= "i" [restaurant]="buss" [parentId]="'#businessInsights'"></app-restaurant-card>
       </div>
     </div>
   </div>

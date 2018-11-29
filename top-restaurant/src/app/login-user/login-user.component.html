@@ -4,15 +4,15 @@
       <h5 class="card-title">Login for User</h5>
       <form>
         <div class="form-group">
-          <label for="user_email">Email address</label>
-          <input type="email" class="form-control" id="user_email" aria-describedby="emailHelp" placeholder="Enter email">
+          <label for="user_id">User ID</label>
+          <input type="text" class="form-control" id="user_id" placeholder="Enter User Id" [(ngModel)] = "userId" [ngModelOptions]="{standalone: true}">
         </div>
         <div class="form-group">
           <label for="user_password">Password</label>
-          <input type="password" class="form-control" id="user_password" placeholder="Password">
+          <input type="password" class="form-control" id="user_password" placeholder="Password" [(ngModel)] = "password" [ngModelOptions]="{standalone: true}">
         </div>
-        <a routerLink="/dashboard_user" routerLinkActive="active"> <button type="submit" class="btn btn-primary">Submit</button></a>
-        <a routerLink="/register_user" routerLinkActive="active"> <button type="submit" class="btn btn-primary">New Account</button> </a>
+        <button type="submit" class="btn btn-primary" (click)="loginUser()">Submit</button>
+        <a routerLink="/register_user" routerLinkActive="active" > <button type="submit" class="btn btn-primary">New Account </button> </a>
       </form>
     </div>
   </div>

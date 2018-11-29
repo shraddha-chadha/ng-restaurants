@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserFilterService} from "../user-filter.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-user',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginUserComponent implements OnInit {
 
-  constructor() { }
+  public userId;
+  public password;
+
+  constructor(private filter:UserFilterService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  loginUser() {
+    this.filter.setUserId(this.userId);
+    this.router.navigateByUrl('/dashboard_user');
   }
 
 }

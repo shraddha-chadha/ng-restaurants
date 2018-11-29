@@ -1,9 +1,8 @@
-
 <div class="card">
     <div class="card-header" [attr.id]="'heading' + cardId + '-' + parentId.substr(1)">
       <h5 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#rest'+ cardId + '-' + parentId.substr(1)" aria-expanded="true" [attr.aria-controls]="'rest'+ cardId" >
-          <span style="color:black;">#{{restaurant.rank}}</span> {{restaurant.name}}
+          <span *ngIf="restaurant.rank != undefined" style="color:black;"> #{{restaurant.rank}} </span> {{restaurant.name}}
         </button>
       </h5>
     </div>

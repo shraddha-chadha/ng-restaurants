@@ -7,9 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterUserComponent implements OnInit {
 
+  public firstName;
+  public lastName;
+  public userId;
+  public password;
   constructor() { }
 
   ngOnInit() {
+
   }
 
+  registerUser() {
+
+    let user = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      userId: this.userId,
+      password:this.password
+    };
+
+    let users = JSON.parse(localStorage.getItem('users'));
+
+    if(users == null) {
+      let u = [];
+      u.push(user);
+      localStorage.setItem('users',JSON.stringify(u));
+
+    } else {
+      users.push(user);
+      localStorage.setItem('users',JSON.stringify(users));
+    }
+
+  }
 }
